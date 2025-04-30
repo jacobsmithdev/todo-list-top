@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack serve --open"
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --open --config webpack.dev.js"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",
