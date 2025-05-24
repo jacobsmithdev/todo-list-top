@@ -55,12 +55,18 @@ function getAllTodos() {
 
 function addTodo(...args) {
     const todo = database.todos.create(...args);
+    if (activeQuery && activeQuery.query(todo)) {
+        updateActiveTodos();
+    }
     observer.publish('todoUpdate');
     return todo;
 }
 
 function removeTodo(id) {
     const removedTodo = database.todos.delete(id);
+    if (activeQuery && activeQuery.query(removedTodo)) {
+        updateActiveTodos();
+    }
     observer.publish('todoUpdate');
     return removedTodo;
 }
