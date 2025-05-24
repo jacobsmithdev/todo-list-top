@@ -5,6 +5,12 @@ import controller from "./modules/controller";
 import observer from "./modules/observer.js";
 import testData from "./modules/testData.js";
 import TodoQuery from "./modules/classes/TodoQuery.js";
+import createActiveTodoDisplay from './modules/UI/ActiveTodos/ActiveTodos.js';
+
+
+const activeTodosContainer = document.querySelector('#todos');
+const activeTodosDisplay = createActiveTodoDisplay();
+activeTodosContainer.append(activeTodosDisplay.display);
 
 const [projects, todos] = testData.createProjectArray(5);
 projects.forEach(project => controller.addProject(project));
