@@ -7,6 +7,7 @@ import testData from "./modules/testData.js";
 import TodoQuery from "./modules/classes/TodoQuery.js";
 import createActiveTodoDisplay from './modules/UI/ActiveTodos/ActiveTodos.js';
 import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
+import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.js';
 
 
 const activeTodosContainer = document.querySelector('#todos');
@@ -22,6 +23,10 @@ const AddTodoModalContainer = document.querySelector('.todos-nav');
 const AddTodoModal = createAddTodoModal();
 document.body.append(AddTodoModal.display);
 AddTodoModalContainer.append(AddTodoModal.openBtn);
+
+const ProjectsDisplayContainer = document.querySelector('.projects-nav');
+const ProjectsDisplay = createProjectsDisplay();
+ProjectsDisplayContainer.append(ProjectsDisplay.display);
 
 window.controller = controller;
 window.observer = observer;
