@@ -9,6 +9,7 @@ import createActiveTodoDisplay from './modules/UI/ActiveTodos/ActiveTodos.js';
 import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
 import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.js';
 import createActiveTodosHeader from './modules/UI/ActiveTodosHeader/ActiveTodosHeader.js';
+import createAddProjectModal from './modules/UI/AddProjectModal/AddProjectModal.js';
 
 
 const activeTodosContainer = document.querySelector('#todos');
@@ -32,6 +33,10 @@ AddTodoModalContainer.append(AddTodoModal.openBtn);
 const ProjectsDisplayContainer = document.querySelector('.projects-nav');
 const ProjectsDisplay = createProjectsDisplay();
 ProjectsDisplayContainer.append(ProjectsDisplay.display);
+
+const AddProjectModal = createAddProjectModal();
+document.body.append(AddProjectModal.display);
+ProjectsDisplayContainer.append(AddProjectModal.openBtn);
 
 window.controller = controller;
 window.observer = observer;
