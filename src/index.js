@@ -1,11 +1,12 @@
 import './reset.css';
 import './index.css';
 
-import controller from "./modules/controller";
+import controller from "./modules/controller.js";
 import observer from "./modules/observer.js";
 import testData from "./modules/testData.js";
 import TodoQuery from "./modules/classes/TodoQuery.js";
 import createActiveTodoDisplay from './modules/UI/ActiveTodos/ActiveTodos.js';
+import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
 
 
 const activeTodosContainer = document.querySelector('#todos');
@@ -15,6 +16,12 @@ activeTodosContainer.append(activeTodosDisplay.display);
 const [projects, todos] = testData.createProjectArray(5);
 projects.forEach(project => controller.addProject(project));
 todos.forEach(todo => controller.addTodo(todo));
+
+
+const AddTodoModalContainer = document.querySelector('.todos-nav');
+const AddTodoModal = createAddTodoModal();
+document.body.append(AddTodoModal.display);
+AddTodoModalContainer.append(AddTodoModal.openBtn);
 
 window.controller = controller;
 window.observer = observer;
