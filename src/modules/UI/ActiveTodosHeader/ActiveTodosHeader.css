@@ -1,0 +1,12 @@
+.todos-header {
+    display: grid;
+    gap: 8px;
+}
+
+.todos-header__header {
+    font-weight: bold;
+}
+
+.todos-header__description {
+    color: rgb(26, 26, 26);
+}

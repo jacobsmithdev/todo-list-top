@@ -8,11 +8,16 @@ import TodoQuery from "./modules/classes/TodoQuery.js";
 import createActiveTodoDisplay from './modules/UI/ActiveTodos/ActiveTodos.js';
 import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
 import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.js';
+import createActiveTodosHeader from './modules/UI/ActiveTodosHeader/ActiveTodosHeader.js';
 
 
 const activeTodosContainer = document.querySelector('#todos');
 const activeTodosDisplay = createActiveTodoDisplay();
 activeTodosContainer.append(activeTodosDisplay.display);
+
+const activeTodosHeaderContainer = document.querySelector('#todos-header');
+const activeTodosHeader = createActiveTodosHeader();
+activeTodosHeaderContainer.append(activeTodosHeader.display);
 
 const [projects, todos] = testData.createProjectArray(5);
 projects.forEach(project => controller.addProject(project));
