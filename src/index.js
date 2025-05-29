@@ -10,6 +10,7 @@ import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
 import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.js';
 import createActiveTodosHeader from './modules/UI/ActiveTodosHeader/ActiveTodosHeader.js';
 import createAddProjectModal from './modules/UI/AddProjectModal/AddProjectModal.js';
+import createInboxBtn from './modules/UI/InboxBtn/InboxBtn.js';
 
 
 const activeTodosContainer = document.querySelector('#todos');
@@ -37,6 +38,9 @@ ProjectsDisplayContainer.append(ProjectsDisplay.display);
 const AddProjectModal = createAddProjectModal();
 document.body.append(AddProjectModal.display);
 ProjectsDisplayContainer.append(AddProjectModal.openBtn);
+
+const InboxBtn = createInboxBtn();
+AddTodoModalContainer.append(InboxBtn.display);
 
 window.controller = controller;
 window.observer = observer;
