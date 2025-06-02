@@ -40,7 +40,7 @@ export default function createTodoRow(todo) {
     description.textContent = todo.description;
 
     expanded.hidden = true;
-    checkbox.value = todo.completed;
+    checkbox.checked = todo.completed;
     
     deleteBtn.addEventListener('click', () => controller.removeTodo(todo.id));
     checkbox.addEventListener('click', () => todo.toggleCompleted());
