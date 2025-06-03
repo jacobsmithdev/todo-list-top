@@ -58,7 +58,5 @@ export default function createTodoRow(todo) {
 
     display.append(main, expanded);
 
-    return {
-        display,
-    }
+    return display;
 }

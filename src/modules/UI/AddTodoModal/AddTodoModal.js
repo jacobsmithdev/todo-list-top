@@ -56,10 +56,10 @@ export default function createAddTodoModal() {
 
     subscribe('projectUpdate', render);
 
-    return {
+    return [
         display,
         openBtn,
-    }
+    ]
 }
 
 function createFormSelect(id, name, description) {

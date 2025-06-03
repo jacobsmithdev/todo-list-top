@@ -28,9 +28,7 @@ export default function createActiveTodosHeader() {
 
     subscribe('activeTodosUpdate', render);
     
-    return {
-        display,
-    }
+    return display;
 }
 
  

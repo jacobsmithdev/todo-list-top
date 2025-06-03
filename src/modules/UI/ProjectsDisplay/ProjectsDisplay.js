@@ -25,7 +25,5 @@ export default function createProjectsDisplay() {
 
     subscribe('projectUpdate', render);
 
-    return {
-        display,
-    }
+    return display;
 }

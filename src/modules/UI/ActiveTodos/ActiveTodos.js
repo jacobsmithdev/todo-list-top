@@ -14,7 +14,7 @@ export default function createActiveTodoDisplay() {
         const todos = getActiveTodos();
 
         const todoDisplays = todos.map(todo => {
-            const todoRow = createTodoRow(todo).display;
+            const todoRow = createTodoRow(todo);
             return todoRow;
         })
 
@@ -25,9 +25,7 @@ export default function createActiveTodoDisplay() {
 
     subscribe('activeTodosUpdate', render);
     
-    return {
-        display,
-    }
+    return display;
 }
 
  

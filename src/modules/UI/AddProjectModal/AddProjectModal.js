@@ -39,10 +39,10 @@ export default function createAddProjectModal() {
         modal.close();
     });
 
-    return {
+    return [
         display,
         openBtn,
-    }
+    ]
 }
 
 function createFormInput(type, id, name, description, placeholder) {

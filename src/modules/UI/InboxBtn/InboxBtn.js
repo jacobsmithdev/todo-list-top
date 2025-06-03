@@ -15,9 +15,7 @@ export default function createInboxBtn() {
     );
     display.addEventListener('click', () => controller.setActiveQuery(inboxQuery))
     
-    return {
-        display,
-    }
+    return display;
 }
 
  
