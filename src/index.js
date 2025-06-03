@@ -20,10 +20,6 @@ const activeTodosHeaderContainer = document.querySelector('#todos-header');
 const activeTodosHeader = createActiveTodosHeader();
 activeTodosHeaderContainer.append(activeTodosHeader);
 
-const [projects, todos] = testData.createProjectArray(5);
-projects.forEach(project => controller.addProject(project));
-todos.forEach(todo => controller.addTodo(todo));
-
 const AddTodoModalContainer = document.querySelector('.todos-nav');
 const [AddTodoModal, AddTodoModalBtn] = createAddTodoModal();
 document.body.append(AddTodoModal);
@@ -39,6 +35,10 @@ ProjectsDisplayContainer.append(AddProjectModalBtn);
 
 const InboxBtn = createInboxBtn();
 AddTodoModalContainer.append(InboxBtn);
+
+const [projects, todos] = testData.createProjectArray(5);
+projects.forEach(project => controller.addProject(project));
+todos.forEach(todo => controller.addTodo(todo));
 
 window.controller = controller;
 window.observer = observer;
