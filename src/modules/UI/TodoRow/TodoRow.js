@@ -1,5 +1,6 @@
-import controller from '../../controller';
 import './TodoRow.css';
+
+import controller from '../../controller';
 
 export default function createTodoRow(todo) {
     const display = document.createElement('div');

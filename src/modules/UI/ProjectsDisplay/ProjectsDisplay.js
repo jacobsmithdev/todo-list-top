@@ -1,4 +1,5 @@
 import './ProjectsDisplay.css';
+
 import controller from '../../controller.js';
 import { subscribe } from '../../observer.js';
 

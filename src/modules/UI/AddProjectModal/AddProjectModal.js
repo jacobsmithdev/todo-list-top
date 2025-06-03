@@ -1,4 +1,5 @@
 import './AddProjectModal.css';
+
 import controller from '../../controller.js';
 
 export default function createAddProjectModal() {
