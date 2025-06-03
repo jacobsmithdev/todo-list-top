@@ -5,7 +5,7 @@ import controller from "./modules/controller.js";
 import observer from "./modules/observer.js";
 import testData from "./modules/testData.js";
 import TodoQuery from "./modules/classes/TodoQuery.js";
-import createActiveTodoDisplay from './modules/UI/ActiveTodos/ActiveTodos.js';
+import createActiveTodoDisplay from './modules/UI/ActiveTodosDisplay/ActiveTodosDisplay.js';
 import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
 import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.js';
 import createActiveTodosHeader from './modules/UI/ActiveTodosHeader/ActiveTodosHeader.js';

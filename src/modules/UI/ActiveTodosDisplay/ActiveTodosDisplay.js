@@ -1,4 +1,4 @@
-import './ActiveTodos.css';
+import './ActiveTodosDisplay.css';
 
 import { subscribe } from "../../observer.js";
 import { getActiveTodos } from "../../controller.js";
