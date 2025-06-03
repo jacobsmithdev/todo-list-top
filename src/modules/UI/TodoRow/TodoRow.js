@@ -21,7 +21,7 @@ export default function createTodoRow(todo) {
     main.classList.add('todo-row__main')
 
     expanded.classList.add('todo-row__expanded')
-    description.classList.add('todo-row__expanded')
+    description.classList.add('todo-row__description')
 
     checkbox.classList.add('todo-row__checkbox');
     title.classList.add('todo-row__title');
