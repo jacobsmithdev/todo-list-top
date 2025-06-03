@@ -12,7 +12,6 @@ import createActiveTodosHeader from './modules/UI/ActiveTodosHeader/ActiveTodosH
 import createAddProjectModal from './modules/UI/AddProjectModal/AddProjectModal.js';
 import createInboxBtn from './modules/UI/InboxBtn/InboxBtn.js';
 
-
 const activeTodosContainer = document.querySelector('#todos');
 const activeTodosDisplay = createActiveTodoDisplay();
 activeTodosContainer.append(activeTodosDisplay);
@@ -24,7 +23,6 @@ activeTodosHeaderContainer.append(activeTodosHeader);
 const [projects, todos] = testData.createProjectArray(5);
 projects.forEach(project => controller.addProject(project));
 todos.forEach(todo => controller.addTodo(todo));
-
 
 const AddTodoModalContainer = document.querySelector('.todos-nav');
 const [AddTodoModal, AddTodoModalBtn] = createAddTodoModal();
