@@ -5,10 +5,11 @@ import { getActiveTodos } from "../../controller.js";
 import createTodoRow from '../TodoRow/TodoRow.js';
 
 export default function createActiveTodoDisplay() {
-
     const display = document.createElement('div');
     display.classList.add('todo-display')
     
+    subscribe('activeTodosUpdate', render);
+
     function render() {
         display.textContent = '';
         const todos = getActiveTodos();
@@ -22,8 +23,6 @@ export default function createActiveTodoDisplay() {
             display.append(todoDisplay);
         });
     }
-
-    subscribe('activeTodosUpdate', render);
     
     return display;
 }

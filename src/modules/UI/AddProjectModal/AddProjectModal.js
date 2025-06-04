@@ -3,32 +3,33 @@ import './AddProjectModal.css';
 import controller from '../../controller.js';
 
 export default function createAddProjectModal() {
-    const modal = document.createElement('dialog');
-    const form = document.createElement('form');
-
-    modal.classList.add('project-modal');
-    form.classList.add('project-modal__form');
-
-    modal.append(form);
-    const display = modal;
-
     const openBtn = document.createElement('button');
     openBtn.textContent = '+ Add Project';
-    openBtn.addEventListener('click', () => modal.showModal());
 
     const closeBtn = document.createElement('button');
     closeBtn.textContent = 'close';
     closeBtn.setAttribute('type', 'button');
-    closeBtn.addEventListener('click', () => modal.close());
+
+    const title = createFormInput('text', 'title', 'title', 'Title', 'title');
+    
+    const description = createFormInput('text', 'description', 'description', 'Description', 'description');
 
     const submitBtn = document.createElement('button');
     submitBtn.textContent = '+ Add';
-
-    const title = createFormInput('text', 'title', 'title', 'Title', 'title');
-    const description = createFormInput('text', 'description', 'description', 'Description', 'description');
-
+    
+    const form = document.createElement('form');
+    form.classList.add('project-modal__form');
     form.append(closeBtn, title, description, submitBtn);
+   
+    const modal = document.createElement('dialog');
+    modal.classList.add('project-modal');
+    modal.append(form);
 
+    const display = modal;
+
+    openBtn.addEventListener('click', () => modal.showModal());
+    closeBtn.addEventListener('click', () => modal.close());
+   
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         controller.addProject(
@@ -47,36 +48,31 @@ export default function createAddProjectModal() {
 }
 
 function createFormInput(type, id, name, description, placeholder) {
-    const row = document.createElement('div');
     const input = createInput(type, id, name, placeholder)
     const label = createLabel(input, description)
 
+    const row = document.createElement('div');
     row.classList.add('form-row');
-
     row.append(label, input);
     return row;
 }
 
 function createLabel(input, text) {
     const label = document.createElement('label');
-
-    label.setAttribute('for', input.getAttribute('id'))
-    label.textContent = text;
-
     label.classList.add('form-row__label');
+    label.textContent = text;
+    label.setAttribute('for', input.getAttribute('id'))
 
     return label;
 }
 
 function createInput(type, id, name, placeholder) {
     const input = document.createElement('input');
-
+    input.classList.add('form-row__input');
     input.setAttribute('type', type);
     input.setAttribute('id', id);
     input.setAttribute('name', name);
     input.setAttribute('placeholder', placeholder);
-
-    input.classList.add('form-row__input');
 
     return input;
 }

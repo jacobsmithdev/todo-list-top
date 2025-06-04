@@ -3,46 +3,50 @@ import './TodoRow.css';
 import controller from '../../controller';
 
 export default function createTodoRow(todo) {
-    const display = document.createElement('div');
-    const main = document.createElement('div');
-
-    const expanded = document.createElement('div')
     const description = document.createElement('div');
-    
-    const checkbox = document.createElement('input');
-    const title = document.createElement('div');
-    const priority = document.createElement('div');
-    const date = document.createElement('div');
-    const project = document.createElement('div');
-    const deleteBtn = document.createElement('button');
-    const expandBtn = document.createElement('button');
-    
-    display.classList.add('todo-row')
-    main.classList.add('todo-row__main')
-
-    expanded.classList.add('todo-row__expanded')
     description.classList.add('todo-row__description')
-
-    checkbox.classList.add('todo-row__checkbox');
-    title.classList.add('todo-row__title');
-    priority.classList.add('todo-row__priority');
-    date.classList.add('todo-row__date');
-    project.classList.add('todo-row__project');
-    
-    checkbox.setAttribute('type', 'checkbox');
-
-    title.textContent = todo.title;
-    priority.textContent = `priority: ${todo.priority} | ${todo.id}`;
-    date.textContent = todo.date;
-    project.textContent = todo.projectId;
-    deleteBtn.textContent = 'x';
-    expandBtn.textContent = '>';
-
     description.textContent = todo.description;
 
-    expanded.hidden = true;
+    const title = document.createElement('div');
+    title.classList.add('todo-row__title');
+    title.textContent = todo.title;
+
+    const priority = document.createElement('div');
+    priority.classList.add('todo-row__priority');
+    priority.textContent = `priority: ${todo.priority} | ${todo.id}`;
+
+    const date = document.createElement('div');
+    date.classList.add('todo-row__date');
+    date.textContent = todo.date;
+
+    const project = document.createElement('div');
+    project.classList.add('todo-row__project');
+    project.textContent = todo.projectId;
+
+    const checkbox = document.createElement('input');
+    checkbox.classList.add('todo-row__checkbox');
+    checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = todo.completed;
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'x';
+
+    const expandBtn = document.createElement('button');
+    expandBtn.textContent = '>';
+
+    const main = document.createElement('div');
+    main.classList.add('todo-row__main');
+    main.append(checkbox, expandBtn, title, priority, date, project, deleteBtn);
+
+    const expanded = document.createElement('div');
+    expanded.classList.add('todo-row__expanded');
+    expanded.hidden = true;
+    expanded.append(description);
     
+    const display = document.createElement('div');
+    display.classList.add('todo-row');
+    display.append(main, expanded);
+
     deleteBtn.addEventListener('click', () => controller.removeTodo(todo.id));
     checkbox.addEventListener('click', () => todo.toggleCompleted());
     expandBtn.addEventListener('click', () => {
@@ -53,11 +57,6 @@ export default function createTodoRow(todo) {
     function toggleExpanded() {
         expanded.hidden = !expanded.hidden;
     }
-
-    main.append(checkbox, expandBtn, title, priority, date, project, deleteBtn);
-    expanded.append(description);
-
-    display.append(main, expanded);
 
     return display;
 }

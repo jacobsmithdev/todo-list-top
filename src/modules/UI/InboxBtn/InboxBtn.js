@@ -13,6 +13,7 @@ export default function createInboxBtn() {
         'Inbox',
         'todos without a project'
     );
+    
     display.addEventListener('click', () => controller.setActiveQuery(inboxQuery))
     
     return display;
