@@ -1,51 +1,39 @@
 import './TodoRow.css';
 
 import controller from '../../controller';
+import createDOMElement from '../../createDOMElement.js';
 
 export default function createTodoRow(todo) {
-    const description = document.createElement('div');
-    description.classList.add('todo-row__description')
-    description.textContent = todo.description;
+    const description = createDOMElement('div', { class: 'todo-row__description' }, todo.description);
+    const title = createDOMElement('div', { class: 'todo-row__title' }, todo.title);
+    const priority = createDOMElement('div', { class: 'todo-row__priority' }, `priority: ${todo.priority} | ${todo.id}`);
+    const date = createDOMElement('div', { class: 'todo-row__date' }, todo.date)
+    const project = createDOMElement('div', { class: 'todo-row__project' }, todo.projectId)
 
-    const title = document.createElement('div');
-    title.classList.add('todo-row__title');
-    title.textContent = todo.title;
+    const deleteBtn = createDOMElement('button', {}, 'x');
+    const expandBtn = createDOMElement('button', {}, '>');
 
-    const priority = document.createElement('div');
-    priority.classList.add('todo-row__priority');
-    priority.textContent = `priority: ${todo.priority} | ${todo.id}`;
-
-    const date = document.createElement('div');
-    date.classList.add('todo-row__date');
-    date.textContent = todo.date;
-
-    const project = document.createElement('div');
-    project.classList.add('todo-row__project');
-    project.textContent = todo.projectId;
-
-    const checkbox = document.createElement('input');
-    checkbox.classList.add('todo-row__checkbox');
-    checkbox.setAttribute('type', 'checkbox');
+    const checkbox = createDOMElement('input', {
+        class: 'todo-row__checkbox',
+        type: 'checkbox',
+    });
     checkbox.checked = todo.completed;
+    // the checked attribute is weird. setAttribute (how createDOMElement 
+    // adds attributes) doesn't work because the property is not 
+    // 'reflective.' See: https://stackoverflow.com/a/57617754
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'x';
+    const expanded = createDOMElement('div', {
+        class: 'todo-row__expanded',
+        hidden: true,
+    }, description);
 
-    const expandBtn = document.createElement('button');
-    expandBtn.textContent = '>';
+    const main = createDOMElement('div', { 
+        class: 'todo-row__main' 
+    }, checkbox, expandBtn, title, priority, date, project, deleteBtn);
 
-    const main = document.createElement('div');
-    main.classList.add('todo-row__main');
-    main.append(checkbox, expandBtn, title, priority, date, project, deleteBtn);
-
-    const expanded = document.createElement('div');
-    expanded.classList.add('todo-row__expanded');
-    expanded.hidden = true;
-    expanded.append(description);
-    
-    const display = document.createElement('div');
-    display.classList.add('todo-row');
-    display.append(main, expanded);
+    const display = createDOMElement('div', {
+        class: 'todo-row',
+    }, main, expanded)
 
     deleteBtn.addEventListener('click', () => controller.removeTodo(todo.id));
     checkbox.addEventListener('click', () => todo.toggleCompleted());

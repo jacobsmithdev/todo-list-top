@@ -2,10 +2,12 @@ import './ProjectsDisplay.css';
 
 import controller from '../../controller.js';
 import { subscribe } from '../../observer.js';
+import createDOMElement from '../../createDOMElement.js';
 
 export default function createProjectsDisplay() {
-    const display = document.createElement('div')
-    display.classList.add('projects-display')
+    const display = createDOMElement('div', {
+        class: 'projects-display',
+    })
 
     subscribe('projectUpdate', render);
 
@@ -15,8 +17,7 @@ export default function createProjectsDisplay() {
         display.textContent = '';
         const projects = controller.getAllProjects();
         const projectBtns = projects.map(project => {
-            const btn = document.createElement('button');
-            btn.textContent = project.title;
+            const btn = createDOMElement('button', {}, project.title);
 
             btn.addEventListener('click', () => {
                 controller.setActiveQuery(project);

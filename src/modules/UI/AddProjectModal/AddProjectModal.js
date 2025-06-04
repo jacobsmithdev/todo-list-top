@@ -1,6 +1,7 @@
 import './AddProjectModal.css';
 
 import controller from '../../controller.js';
+import createDOMElement from '../../createDOMElement.js';
 
 export default function createAddProjectModal() {
     const openBtn = document.createElement('button');
@@ -50,29 +51,31 @@ export default function createAddProjectModal() {
 function createFormInput(type, id, name, description, placeholder) {
     const input = createInput(type, id, name, placeholder)
     const label = createLabel(input, description)
+    
+    const row = createDOMElement('div', { class: 'form-row' }, label, input);
 
-    const row = document.createElement('div');
-    row.classList.add('form-row');
-    row.append(label, input);
     return row;
 }
 
 function createLabel(input, text) {
-    const label = document.createElement('label');
-    label.classList.add('form-row__label');
-    label.textContent = text;
-    label.setAttribute('for', input.getAttribute('id'))
+    const inputId = input.getAttribute('id');
+
+    const label = createDOMElement('label', {
+        class: 'form-row__label',
+        for: inputId,
+    }, text);
 
     return label;
 }
 
 function createInput(type, id, name, placeholder) {
-    const input = document.createElement('input');
-    input.classList.add('form-row__input');
-    input.setAttribute('type', type);
-    input.setAttribute('id', id);
-    input.setAttribute('name', name);
-    input.setAttribute('placeholder', placeholder);
+    const input = createDOMElement('input', {
+        class: 'form-row__input',
+        type: type,
+        id: id,
+        name: name,
+        placeholder: placeholder,
+    });
 
     return input;
 }

@@ -3,10 +3,10 @@ import './ActiveTodosDisplay.css';
 import { subscribe } from "../../observer.js";
 import { getActiveTodos } from "../../controller.js";
 import createTodoRow from '../TodoRow/TodoRow.js';
+import createDOMElement from '../../createDOMElement.js';
 
 export default function createActiveTodoDisplay() {
-    const display = document.createElement('div');
-    display.classList.add('todo-display')
+    const display = createDOMElement('div', { class: 'todo-display' });
     
     subscribe('activeTodosUpdate', render);
 
