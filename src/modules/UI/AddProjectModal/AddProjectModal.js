@@ -4,28 +4,18 @@ import controller from '../../controller.js';
 import createDOMElement from '../../createDOMElement.js';
 
 export default function createAddProjectModal() {
-    const openBtn = document.createElement('button');
-    openBtn.textContent = '+ Add Project';
-
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = 'close';
-    closeBtn.setAttribute('type', 'button');
-
     const title = createFormInput('text', 'title', 'title', 'Title', 'title');
-    
     const description = createFormInput('text', 'description', 'description', 'Description', 'description');
-
-    const submitBtn = document.createElement('button');
-    submitBtn.textContent = '+ Add';
     
-    const form = document.createElement('form');
-    form.classList.add('project-modal__form');
-    form.append(closeBtn, title, description, submitBtn);
-   
-    const modal = document.createElement('dialog');
-    modal.classList.add('project-modal');
-    modal.append(form);
+    const submitBtn = createDOMElement('button', {}, '+ Add');
+    const openBtn = createDOMElement('button', {}, '+ Add Project')
+    const closeBtn = createDOMElement('button', { type: 'button' }, 'close');
 
+    const form = createDOMElement('form', {
+        class: 'project-modal__form',
+    }, closeBtn, title, description, submitBtn);
+   
+    const modal = createDOMElement('dialog', { class: 'project-modal' }, form);
     const display = modal;
 
     openBtn.addEventListener('click', () => modal.showModal());
