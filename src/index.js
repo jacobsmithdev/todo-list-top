@@ -1,3 +1,4 @@
+import './fonts.css';
 import './reset.css';
 import './palette.css';
 import './index.css';
