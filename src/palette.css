@@ -1,0 +1,18 @@
+:root {
+    /* Color Variable Declarations */
+    --dark-grey: hsl(0, 0%, 15%);
+    --dark-grey-alt: hsl(0, 0%, 18%);
+    --dark-turquoise: hsl(176, 14%, 22%);
+
+    --turquoise: hsl(181, 51%, 29%);
+    --seagreen: hsl(163, 76%, 31%);
+    --green: #5aba58;
+
+    --light-gray: hsl(206, 8%, 67%);
+    --light-gray-alt: hsl(210, 7%, 78%);
+
+    --solid-blue: hsl(234, 43%, 54%);
+    --solid-green: hsl(119, 42%, 54%);
+    --solid-red: hsl(0, 85%, 59%);
+    --solid-yellow: hsl(51, 82%, 64%);
+}
