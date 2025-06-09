@@ -49,11 +49,13 @@
 .todos-nav {
   border-bottom: 2px solid var(--sidebar-border);
   padding: 8px;
+  display: grid;
 }
 
 .projects-nav {
   border-bottom: 2px solid var(--sidebar-border);
   padding: 8px;
+  display: grid;
 }
 
 .list-btn {

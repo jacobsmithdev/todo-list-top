@@ -17,7 +17,7 @@ export default function createProjectsDisplay() {
         display.textContent = '';
         const projects = controller.getAllProjects();
         const projectBtns = projects.map(project => {
-            const btn = createDOMElement('button', {}, project.title);
+            const btn = createDOMElement('button', { class: 'list-btn' }, project.title);
 
             btn.addEventListener('click', () => {
                 controller.setActiveQuery(project);

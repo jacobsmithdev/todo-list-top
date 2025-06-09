@@ -8,7 +8,7 @@ export default function createAddProjectModal() {
     const description = createFormInput('text', 'description', 'description', 'Description', 'description');
     
     const submitBtn = createDOMElement('button', {}, '+ Add');
-    const openBtn = createDOMElement('button', {}, '+ Add Project')
+    const openBtn = createDOMElement('button', { class: 'list-btn' }, '+ Add Project')
     const closeBtn = createDOMElement('button', { type: 'button' }, 'close');
 
     const form = createDOMElement('form', {
