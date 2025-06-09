@@ -1,4 +1,13 @@
+:root {
+  --main-bg: var(--dark-grey);
+  --sidebar-bg: var(--dark-grey-alt);
+  --sidebar-border: var(--dark-turquoise);
+
+  --logo-text: var(--turquoise);
+}
+
 .layout-wrapper {
+  color: var(--text-default);
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-template-areas: "sidebar main";
@@ -7,16 +16,14 @@
 
 .sidebar {
   grid-area: sidebar;
-  background-color: lightblue;
+  background-color: var(--sidebar-bg);
   display: grid;
-  grid-template-rows: auto auto 1fr;
-  gap: 8px;
-  padding: 8px;
+  grid-template-rows: auto auto auto 1fr;
 }
 
 .main {
   grid-area: main;
-  background-color: lightgray;
+  background-color: var(--main-bg);
   padding: 8px;
   padding-top: 48px;
   display: grid;
@@ -24,20 +31,23 @@
   gap: 16px;
 }
 
+.logo {
+  border-bottom: 2px solid var(--sidebar-border);
+}
+
+.logo__a {
+  text-decoration: none;
+  padding: 4px 8px;
+  font-weight: bold;
+  color: var(--logo-text);
+}
+
 .todos-nav {
-  background-color: cornflowerblue;
+  border-bottom: 2px solid var(--sidebar-border);
   padding: 8px;
 }
 
 .projects-nav {
-  background-color: lightskyblue;
+  border-bottom: 2px solid var(--sidebar-border);
   padding: 8px;
-}
-
-.todos-header {
-  background-color: whitesmoke;
-}
-
-.todos {
-  background-color: whitesmoke;
 }
