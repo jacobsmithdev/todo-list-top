@@ -4,6 +4,10 @@
   --sidebar-border: var(--dark-turquoise);
 
   --logo-text: var(--turquoise);
+
+  --list-btn-text: var(--green);
+  --list-btn-bg-hover: var(--dark-turquoise);
+  --list-btn-text-hover: var(--seagreen-alt);
 }
 
 .layout-wrapper {
@@ -50,4 +54,19 @@
 .projects-nav {
   border-bottom: 2px solid var(--sidebar-border);
   padding: 8px;
+}
+
+.list-btn {
+  padding: 4px 8px;
+  border: none;
+  background: none;
+  font-weight: bold;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--list-btn-text);
+}
+
+.list-btn:hover {
+  background-color: var(--list-btn-bg-hover);
+  color: var(--list-btn-text-hover);
 }
