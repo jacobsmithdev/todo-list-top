@@ -1,12 +1,22 @@
+:root {
+    --todo-header-bg: var(--dark-turquoise);
+    --todo-header-text: var(--seagreen-alt);
+    --todo-header-subtext: var(--light-gray);
+}
+
 .todos-header {
     display: grid;
-    gap: 8px;
 }
 
 .todos-header__header {
     font-weight: bold;
+    color: var(--todo-header-text);
+    background: var(--todo-header-bg);
+    padding: 8px 16px;
 }
 
 .todos-header__description {
-    color: rgb(26, 26, 26);
+    color: var(--todo-header-subtext);    
+    padding: 8px 16px;
+    border-bottom: solid 2px var(--todo-header-bg);
 }

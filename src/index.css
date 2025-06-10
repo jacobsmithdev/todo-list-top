@@ -32,7 +32,6 @@
 .main {
   grid-area: main;
   background-color: var(--main-bg);
-  padding: 8px;
   padding-top: 48px;
   display: grid;
   grid-template-rows: auto 1fr;

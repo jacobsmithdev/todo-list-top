@@ -1,5 +1,6 @@
 .todo-display {
     display: grid;
+    padding: 8px;
     gap: 8px;
 }
 
