@@ -3,8 +3,3 @@
     padding: 8px;
     gap: 8px;
 }
-
-.todo-display__item {
-    background-color: lightblue;
-    padding: 4px 16px;
-}
