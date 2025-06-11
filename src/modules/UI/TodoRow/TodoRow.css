@@ -1,6 +1,14 @@
 :root {
   --todo-row-text: var(--light-grey-alt);
   --todo-row-border: var(--dark-turquoise);
+
+  --todo-row-priority-text: var(--dark-grey);
+  --todo-row-p0: var(--dark-turquoise);
+
+  --todo-row-p1: var(--solid-red);
+  --todo-row-p2: var(--solid-yellow);
+  --todo-row-p3: var(--solid-green);
+  --todo-row-p4: var(--solid-blue);
 }
 
 .todo-row {
@@ -28,4 +36,28 @@
 .todo-row__expanded {
   border-top: 2px solid var(--todo-row-border);
   padding: 8px;
+}
+
+.todo-row__priority {
+  background: var(--todo-row-p0);
+  color: var(--todo-row-priority-text);
+  padding: 1px 4px;
+  font-weight: bold;
+}
+
+/* Priority Task Styling */
+.todo-row--p1 .todo-row__priority {
+  background: var(--todo-row-p1);
+}
+
+.todo-row--p2 .todo-row__priority {
+  background: var(--todo-row-p2);
+}
+
+.todo-row--p3 .todo-row__priority {
+  background: var(--todo-row-p3);
+}
+
+.todo-row--p4 .todo-row__priority {
+  background: var(--todo-row-p4);
 }
