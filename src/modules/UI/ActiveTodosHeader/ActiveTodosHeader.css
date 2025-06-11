@@ -1,7 +1,7 @@
 :root {
     --todo-header-bg: var(--dark-turquoise);
     --todo-header-text: var(--seagreen-alt);
-    --todo-header-subtext: var(--light-gray);
+    --todo-header-subtext: var(--light-grey);
 }
 
 .todos-header {
