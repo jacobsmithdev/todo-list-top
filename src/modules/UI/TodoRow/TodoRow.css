@@ -1,23 +1,23 @@
 .todo-row {
-    display: grid;
-    outline: 1px solid black;
-  }
-  
-  .todo-row__checkbox {
-    width: 20px;
-  }
-  
-  .todo-row__main {
-    display: flex;
-    padding: 8px;
-    outline: 1px solid black;
-    gap: 16px;
-  }
-  
-  .todo-row__title {
-    flex: 1;
-  }
+  display: grid;
+  outline: 1px solid black;
+}
 
-  .todo-row__expanded {
-    padding: 8px;
-  }
+.todo-row__checkbox {
+  width: 20px;
+}
+
+.todo-row__main {
+  display: flex;
+  padding: 8px;
+  outline: 1px solid black;
+  gap: 16px;
+}
+
+.todo-row__title {
+  flex: 1;
+}
+
+.todo-row__expanded {
+  padding: 8px;
+}
