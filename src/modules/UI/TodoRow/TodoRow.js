@@ -6,9 +6,8 @@ import createDOMElement from '../../createDOMElement.js';
 export default function createTodoRow(todo) {
     const description = createDOMElement('div', { class: 'todo-row__description' }, todo.description);
     const title = createDOMElement('div', { class: 'todo-row__title' }, todo.title);
-    const priority = createDOMElement('div', { class: 'todo-row__priority' }, `priority: ${todo.priority} | ${todo.id}`);
+    const priority = createDOMElement('div', { class: 'todo-row__priority' }, `P${todo.priority}`);
     const date = createDOMElement('div', { class: 'todo-row__date' }, todo.date)
-    const project = createDOMElement('div', { class: 'todo-row__project' }, todo.projectId)
 
     const deleteBtn = createDOMElement('button', {}, 'x');
     const expandBtn = createDOMElement('button', {}, '>');
@@ -29,7 +28,7 @@ export default function createTodoRow(todo) {
 
     const main = createDOMElement('div', { 
         class: 'todo-row__main' 
-    }, checkbox, expandBtn, title, priority, date, project, deleteBtn);
+    }, checkbox, expandBtn, title, priority, date, deleteBtn);
 
     const display = createDOMElement('div', {
         class: 'todo-row',
