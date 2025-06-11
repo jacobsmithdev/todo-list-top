@@ -1,6 +1,12 @@
+:root {
+  --todo-row-text: var(--light-grey-alt);
+  --todo-row-border: var(--dark-turquoise);
+}
+
 .todo-row {
+  color: var(--todo-row-text);
   display: grid;
-  outline: 1px solid black;
+  border: 2px solid var(--todo-row-border);
 }
 
 .todo-row__checkbox {
@@ -8,9 +14,10 @@
 }
 
 .todo-row__main {
+  color: var(--todo-row-text);
   display: flex;
+  align-items: center;
   padding: 8px;
-  outline: 1px solid black;
   gap: 16px;
 }
 
@@ -19,5 +26,6 @@
 }
 
 .todo-row__expanded {
+  border-top: 2px solid var(--todo-row-border);
   padding: 8px;
 }
