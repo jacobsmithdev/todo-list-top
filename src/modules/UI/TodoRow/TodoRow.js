@@ -1,5 +1,7 @@
 import './TodoRow.css';
 
+import trashIconSrc from '../../../img/trash_icon.svg';
+
 import controller from '../../controller';
 import createDOMElement from '../../createDOMElement.js';
 
@@ -9,7 +11,12 @@ export default function createTodoRow(todo) {
     const priority = createDOMElement('div', { class: 'todo-row__priority' }, `P${todo.priority}`);
     const date = createDOMElement('div', { class: 'todo-row__date' }, todo.date)
 
-    const deleteBtn = createDOMElement('button', {}, 'x');
+    const trashIcon = createDOMElement('img', { 
+        class: 'todo-row__trash-icon',
+        src: trashIconSrc, 
+        alt: 'trash icon'
+    });
+    const deleteBtn = createDOMElement('button', { class: 'todo-row__delete-btn'}, trashIcon);
     const expandBtn = createDOMElement('button', {}, '>');
 
     const checkbox = createDOMElement('input', {

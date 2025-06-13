@@ -97,3 +97,18 @@
 .todo-row--p4 .todo-row__priority {
   background: var(--todo-row-p4);
 }
+
+.todo-row__delete-btn {
+  background: none;
+  border: none;
+  display: grid;
+  place-content: center;
+}
+
+.todo-row__delete-btn:hover {
+  cursor: pointer;
+}
+
+.todo-row__trash-icon {
+  width: 16px;
+}
