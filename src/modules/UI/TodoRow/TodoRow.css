@@ -112,3 +112,29 @@
 .todo-row__trash-icon {
   width: 16px;
 }
+
+.todo-row__expand-btn {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-content: center;
+  border: none;
+  background: none;
+}
+
+
+.todo-row__expand-btn:hover {
+  cursor: pointer;
+}
+
+.todo-row__expand-btn::before {
+  content: '';
+  background: var(--todo-row-text);
+  width: 20px;
+  height: 20px;
+  clip-path: polygon(40% 30%, 70% 50%, 40% 70%);
+}
+
+.todo-row__expand-btn.todo-row__expand-btn--open::before {
+  transform: rotate(90deg);
+}

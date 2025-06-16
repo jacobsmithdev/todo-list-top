@@ -17,7 +17,7 @@ export default function createTodoRow(todo) {
         alt: 'trash icon'
     });
     const deleteBtn = createDOMElement('button', { class: 'todo-row__delete-btn'}, trashIcon);
-    const expandBtn = createDOMElement('button', {}, '>');
+    const expandBtn = createDOMElement('button', { class: 'todo-row__expand-btn' });
 
     const checkbox = createDOMElement('input', {
         class: 'todo-row__checkbox',
@@ -49,7 +49,7 @@ export default function createTodoRow(todo) {
     checkbox.addEventListener('click', () => todo.toggleCompleted());
     expandBtn.addEventListener('click', () => {
         toggleExpanded()
-        expandBtn.textContent = expandBtn.textContent === '>' ? 'V' : '>'    
+        expandBtn.classList.toggle('todo-row__expand-btn--open')
     });
 
     function toggleExpanded() {
