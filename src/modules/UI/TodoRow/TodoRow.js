@@ -41,12 +41,17 @@ export default function createTodoRow(todo) {
         class: 'todo-row',
     }, main, expanded)
 
+    if (todo.completed) display.classList.add('todo-row--completed')
+
     if (todo.priority >= 1 && todo.priority <= 4) {
         display.classList.add(`todo-row--p${todo.priority}`);
     }
 
     deleteBtn.addEventListener('click', () => controller.removeTodo(todo.id));
-    checkbox.addEventListener('click', () => todo.toggleCompleted());
+    checkbox.addEventListener('click', () => {
+        todo.toggleCompleted()
+        display.classList.toggle('todo-row--completed');
+    });
     expandBtn.addEventListener('click', () => {
         toggleExpanded()
         expandBtn.classList.toggle('todo-row__expand-btn--open')

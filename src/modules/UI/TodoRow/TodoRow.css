@@ -9,6 +9,8 @@
   --todo-row-p2: var(--solid-yellow);
   --todo-row-p3: var(--solid-green);
   --todo-row-p4: var(--solid-blue);
+
+  --todo-row-completed: var(--dark-turquoise);
 }
 
 .todo-row {
@@ -137,4 +139,31 @@
 
 .todo-row__expand-btn.todo-row__expand-btn--open::before {
   transform: rotate(90deg);
+}
+
+.todo-row--completed {
+  color: var(--todo-row-completed);
+}
+
+.todo-row--completed .todo-row__title {
+  text-decoration: line-through 0.1em;
+  color: var(--todo-row-completed);
+}
+
+.todo-row--completed .todo-row__date {
+  text-decoration: line-through 0.1em;
+  color: var(--todo-row-completed);
+}
+
+.todo-row--completed .todo-row__expanded {
+  text-decoration: line-through 0.1em;
+}
+
+.todo-row--completed .todo-row__priority {
+  background: var(--todo-row-p0);
+  color: var(--todo-row-priority-text);
+}
+
+.todo-row--completed .todo-row__expand-btn::before {
+  background: var(--todo-row-completed);
 }
