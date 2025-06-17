@@ -11,8 +11,8 @@ export default function createAddTodoModal() {
     const date = createFormInput('date', 'date', 'date', 'Date', 'date');
 
     const openBtn = createDOMElement('button', { class: 'list-btn' }, '+ Add Todo');
-    const submitBtn = createDOMElement('button', {}, '+ Add');
-    const closeBtn = createDOMElement('button', { type: 'button' }, 'close');
+    const submitBtn = createDOMElement('button', { class: 'form-submit-btn' }, '+ Add');
+    const closeBtn = createDOMElement('button', { type: 'button', class: 'form-close-btn' }, 'close');
 
     let project = createFormSelect('project', 'project', 'select project...');
 
@@ -58,12 +58,14 @@ export default function createAddTodoModal() {
 
 function createFormSelect(id, name, description) {
     const placeholder = createDOMElement('option', {
+        class: 'select__option',
         disabled: true,
         selected: true,
         value: '',
     }, description);
 
     const select = createDOMElement('select', {
+        class: 'select',
         id: id,
         name: name,
     }, placeholder);
@@ -72,6 +74,7 @@ function createFormSelect(id, name, description) {
 
     projectsData.forEach(project => {
         const option = createDOMElement('option', {
+            class: 'select__option',
             value: (project.id)
         }, project.title);
 

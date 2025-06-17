@@ -8,6 +8,20 @@
   --list-btn-text: var(--green);
   --list-btn-bg-hover: var(--dark-turquoise);
   --list-btn-text-hover: var(--seagreen-alt);
+
+  --modal-bg: var(--dark-grey);
+  --modal-border: var(--dark-turquoise);
+
+  --form-text: var(--light-grey-alt);
+  --form-row-outline: var(--dark-turquoise);
+  --form-row-border: var(--turquoise);
+
+  --form-close-btn: var(--turquoise);
+  --form-submit-btn: var(--green);
+
+  --select-color: var(--light-grey-alt);
+  --select-border: var(--turquoise);
+  --select-option-bg: var(--dark-grey);
 }
 
 * {
@@ -74,4 +88,73 @@
 .list-btn:hover {
   background-color: var(--list-btn-bg-hover);
   color: var(--list-btn-text-hover);
+}
+
+.modal[open] {
+  background: var(--modal-bg);
+  border: 2px solid var(--modal-border);
+}
+
+.modal__form {
+  color: var(--form-text);;
+  display: grid;
+  gap: 12px;
+}
+
+.form-row {
+  display: grid;
+}
+
+.form-row__label {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.form-row__input {
+  background: var(--form-row-bg);
+  font-weight: bold;
+  color: var(--form-text);
+  border: none;
+  border-bottom: 2px solid var(--form-row-border);
+  padding: 2px 8px;
+  width: 200px;
+}
+
+.form-row__input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(0.8);
+  width: 20px;
+  height: 20px;
+}
+
+.form-row__input:focus {
+  outline: 2px solid var(--form-row-outline);
+}
+
+.form-close-btn {
+  background: none;
+  border: 2px solid var(--form-close-btn);
+  color: var(--form-close-btn);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.form-submit-btn {
+  background: none;
+  border: 2px solid var(--form-submit-btn);
+  color: var(--form-submit-btn);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.select {
+  background: none;
+  color: var(--select-color);
+  border: 2px solid var(--select-border);
+  font-weight: bold;
+  padding: 2px 4px;
+}
+
+.select__option {
+  background: var(--select-option-bg);
+  font-weight: bold;
 }
