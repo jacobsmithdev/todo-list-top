@@ -33,7 +33,7 @@ const [addProjectModal, addProjectModalBtn] = createAddProjectModal();
 activeTodosContainer.append(activeTodosDisplay);
 activeTodosHeaderContainer.append(activeTodosHeader);
 todosNav.append(addTodoModalBtn, inboxBtn);
-projectsNav.append(projectsDisplay, addProjectModalBtn);
+projectsNav.append(addProjectModalBtn, projectsDisplay);
 document.body.append(addTodoModal, addProjectModal);
 
 const [projects, todos] = testData.createProjectArray(5);
