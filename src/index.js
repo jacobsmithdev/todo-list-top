@@ -7,36 +7,34 @@ import controller from "./modules/controller.js";
 import observer from "./modules/observer.js";
 import testData from "./modules/testData.js";
 import TodoQuery from "./modules/classes/TodoQuery.js";
+
 import createActiveTodoDisplay from './modules/UI/ActiveTodosDisplay/ActiveTodosDisplay.js';
-import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
-import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.js';
 import createActiveTodosHeader from './modules/UI/ActiveTodosHeader/ActiveTodosHeader.js';
-import createAddProjectModal from './modules/UI/AddProjectModal/AddProjectModal.js';
 import createInboxBtn from './modules/UI/InboxBtn/InboxBtn.js';
+import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.js';
+import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
+import createAddProjectModal from './modules/UI/AddProjectModal/AddProjectModal.js';
 
+// Containers
 const activeTodosContainer = document.querySelector('#todos');
-const activeTodosDisplay = createActiveTodoDisplay();
-activeTodosContainer.append(activeTodosDisplay);
-
 const activeTodosHeaderContainer = document.querySelector('#todos-header');
+const todosNav = document.querySelector('.todos-nav');
+const projectsNav = document.querySelector('.projects-nav');
+
+// UI Components
+const activeTodosDisplay = createActiveTodoDisplay();
 const activeTodosHeader = createActiveTodosHeader();
+const inboxBtn = createInboxBtn();
+const projectsDisplay = createProjectsDisplay();
+const [addTodoModal, addTodoModalBtn] = createAddTodoModal();
+const [addProjectModal, addProjectModalBtn] = createAddProjectModal();
+
+// Appends
+activeTodosContainer.append(activeTodosDisplay);
 activeTodosHeaderContainer.append(activeTodosHeader);
-
-const AddTodoModalContainer = document.querySelector('.todos-nav');
-const [AddTodoModal, AddTodoModalBtn] = createAddTodoModal();
-document.body.append(AddTodoModal);
-AddTodoModalContainer.append(AddTodoModalBtn);
-
-const ProjectsDisplayContainer = document.querySelector('.projects-nav');
-const ProjectsDisplay = createProjectsDisplay();
-ProjectsDisplayContainer.append(ProjectsDisplay);
-
-const [AddProjectModal, AddProjectModalBtn] = createAddProjectModal();
-document.body.append(AddProjectModal);
-ProjectsDisplayContainer.append(AddProjectModalBtn);
-
-const InboxBtn = createInboxBtn();
-AddTodoModalContainer.append(InboxBtn);
+todosNav.append(addTodoModalBtn, inboxBtn);
+projectsNav.append(projectsDisplay, addProjectModalBtn);
+document.body.append(addTodoModal, addProjectModal);
 
 const [projects, todos] = testData.createProjectArray(5);
 projects.forEach(project => controller.addProject(project));
