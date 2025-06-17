@@ -1,6 +1,6 @@
 import './fonts.css';
 import './reset.css';
-import './palette.css';
+import './colors.css';
 import './index.css';
 
 import controller from "./modules/controller.js";
