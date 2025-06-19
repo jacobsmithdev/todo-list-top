@@ -3,11 +3,6 @@ import './reset.css';
 import './colors.css';
 import './index.css';
 
-import controller from "./modules/controller.js";
-import observer from "./modules/observer.js";
-import testData from "./modules/testData.js";
-import TodoQuery from "./modules/classes/TodoQuery.js";
-
 import createActiveTodoDisplay from './modules/UI/ActiveTodosDisplay/ActiveTodosDisplay.js';
 import createActiveTodosHeader from './modules/UI/ActiveTodosHeader/ActiveTodosHeader.js';
 import createInboxBtn from './modules/UI/InboxBtn/InboxBtn.js';
@@ -36,37 +31,5 @@ todosNav.append(addTodoModalBtn, inboxBtn);
 projectsNav.append(addProjectModalBtn, projectsDisplay);
 document.body.append(addTodoModal, addProjectModal);
 
-const [projects, todos] = testData.createProjectArray(5);
-projects.forEach(project => controller.addProject(project));
-todos.forEach(todo => controller.addTodo(todo));
-
-window.controller = controller;
-window.observer = observer;
-window.testData = testData;
-window.TodoQuery = TodoQuery;
-
-observer.subscribe('todoQuery', () => {
-    console.log('todoQuery');
-})
-
-observer.subscribe('todoUpdate', () => {
-    console.log('todoUpdate');
-})
-
-observer.subscribe('projectQuery', () => {
-    console.log('projectQuery');
-})
-
-observer.subscribe('projectUpdate', () => {
-    console.log('projectUpdate');
-})
-
-observer.subscribe('activeQueryUpdate', () => {
-    console.log('activeQueryUpdate');
-})
-
-observer.subscribe('activeTodosUpdate', () => {
-    console.log('activeTodosUpdate');
-})
-
-controller.setActiveQuery(projects[0]);
+import debug from './debug.js';
+debug();
