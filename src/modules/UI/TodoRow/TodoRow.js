@@ -49,7 +49,7 @@ export default function createTodoRow(todo) {
 
     deleteBtn.addEventListener('click', () => controller.removeTodo(todo.id));
     checkbox.addEventListener('click', () => {
-        todo.toggleCompleted()
+        controller.toggleTodoCompleted(todo.id);
         display.classList.toggle('todo-row--completed');
     });
     expandBtn.addEventListener('click', () => {
