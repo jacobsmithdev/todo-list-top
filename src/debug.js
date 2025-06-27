@@ -2,11 +2,17 @@ import controller from "./modules/controller.js";
 import observer from "./modules/observer.js";
 import testData from "./modules/testData.js";
 import TodoQuery from "./modules/classes/TodoQuery.js";
+import localStorageHandler from "./modules/localStorageHandler.js";
 
 function debug() {
-    const [projects, todos] = testData.createProjectArray(5);
-    projects.forEach(project => controller.addProject(project));
-    todos.forEach(todo => controller.addTodo(todo));
+    const projectsStorage = localStorageHandler.getProjects();
+    const todosStorage = localStorageHandler.getTodos();
+    
+    if (todosStorage === null && projectsStorage === null) {
+        const [projects, todos] = testData.createProjectArray(5);
+        projects.forEach(project => controller.addProject(project));
+        todos.forEach(todo => controller.addTodo(todo));
+    }
     
     window.controller = controller;
     window.observer = observer;
@@ -36,8 +42,6 @@ function debug() {
     observer.subscribe('activeTodosUpdate', () => {
         console.log('activeTodosUpdate');
     })
-    
-    controller.setActiveQuery(projects[0]);
 }
 
 export default debug;

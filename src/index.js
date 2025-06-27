@@ -10,6 +10,8 @@ import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.
 import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
 import createAddProjectModal from './modules/UI/AddProjectModal/AddProjectModal.js';
 
+import loadLocalStorage from './modules/loadLocalStorage.js';
+
 // Containers
 const activeTodosContainer = document.querySelector('#todos');
 const activeTodosHeaderContainer = document.querySelector('#todos-header');
@@ -30,6 +32,8 @@ activeTodosHeaderContainer.append(activeTodosHeader);
 todosNav.append(addTodoModalBtn, inboxBtn);
 projectsNav.append(addProjectModalBtn, projectsDisplay);
 document.body.append(addTodoModal, addProjectModal);
+
+loadLocalStorage();
 
 import debug from './debug.js';
 debug();
