@@ -3,6 +3,7 @@ import './ProjectsDisplay.css';
 import controller from '../../controller.js';
 import { subscribe } from '../../observer.js';
 import createDOMElement from '../../createDOMElement.js';
+import createProjectRow from '../ProjectRow/ProjectRow.js';
 
 export default function createProjectsDisplay() {
     const display = createDOMElement('div', {
@@ -16,15 +17,7 @@ export default function createProjectsDisplay() {
     function render() {
         display.textContent = '';
         const projects = controller.getAllProjects();
-        const projectBtns = projects.map(project => {
-            const btn = createDOMElement('button', { class: 'list-btn' }, project.title);
-
-            btn.addEventListener('click', () => {
-                controller.setActiveQuery(project);
-            });
-            
-            return btn;
-        })
+        const projectBtns = projects.map(project => createProjectRow(project));
 
         display.append(...projectBtns);
     }

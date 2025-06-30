@@ -1,0 +1,43 @@
+:root {
+  --project-row-text: var(--green);
+  --project-row-text-hover: var(--seagreen-alt);
+
+  --project-row-bg-hover: var(--dark-turquoise);
+}
+
+.project-row {
+  display: flex;
+  padding: 4px 8px;
+}
+
+.project-row:hover {
+  background-color: var(--project-row-bg-hover);
+  color: var(--project-row-text-hover);
+  cursor: pointer;
+}
+
+.project-row:hover * {
+  cursor: pointer;
+}
+
+.project-row__title {
+  flex: 1;
+  display: grid;
+  background: none;
+  color: var( --project-row-text);
+  border: none;
+  font-weight: bold;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.project-row__delete-btn {
+  background: none;
+  border: none;
+  display: grid;
+  place-content: center;
+}
+
+.project-row__trash-icon {
+  width: 0.8em;
+}
