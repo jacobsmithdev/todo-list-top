@@ -12,8 +12,6 @@ export default function createProjectsDisplay() {
 
     subscribe('projectUpdate', render);
 
-    render();
-
     function render() {
         display.textContent = '';
         const projects = controller.getAllProjects();

@@ -23,8 +23,6 @@ export default function createActiveTodosHeader() {
         description.textContent = activeQuery.description;
     }
 
-    render();
-
     return display;
 }
 
