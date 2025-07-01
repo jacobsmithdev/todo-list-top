@@ -3,7 +3,7 @@ import './TodoRow.css';
 import trashIconSrc from '../../../img/trash_icon.svg';
 
 import controller from '../../controller';
-import createDOMElement from '../../createDOMElement.js';
+import { createDOMElement }  from '../../domManipulators.js';
 
 export default function createTodoRow(todo) {
     const description = createDOMElement('div', { class: 'todo-row__description' }, todo.description);

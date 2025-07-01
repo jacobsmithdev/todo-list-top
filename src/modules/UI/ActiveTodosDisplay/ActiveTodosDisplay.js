@@ -3,7 +3,7 @@ import './ActiveTodosDisplay.css';
 import { subscribe } from "../../observer.js";
 import { getActiveTodos } from "../../controller.js";
 import createTodoRow from '../TodoRow/TodoRow.js';
-import createDOMElement from '../../createDOMElement.js';
+import { createDOMElement } from '../../domManipulators.js';
 
 export default function createActiveTodoDisplay() {
     const display = createDOMElement('div', { class: 'todo-display' });

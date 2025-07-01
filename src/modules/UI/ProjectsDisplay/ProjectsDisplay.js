@@ -2,7 +2,7 @@ import './ProjectsDisplay.css';
 
 import controller from '../../controller.js';
 import { subscribe } from '../../observer.js';
-import createDOMElement from '../../createDOMElement.js';
+import { createDOMElement }  from '../../domManipulators.js';
 import createProjectRow from '../ProjectRow/ProjectRow.js';
 
 export default function createProjectsDisplay() {

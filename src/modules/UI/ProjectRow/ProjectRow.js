@@ -3,7 +3,7 @@ import './ProjectRow.css';
 import trashIconSrc from '../../../img/trash_icon.svg';
 
 import controller from '../../controller';
-import createDOMElement from '../../createDOMElement.js';
+import { createDOMElement }  from '../../domManipulators.js';
 
 export default function createProjectRow(project) {
     

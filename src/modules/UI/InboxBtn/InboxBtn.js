@@ -2,7 +2,7 @@ import './InboxBtn.css';
 
 import controller from "../../controller.js";
 import TodoQuery from "../../classes/TodoQuery.js";
-import createDOMElement from '../../createDOMElement.js';
+import { createDOMElement }  from '../../domManipulators.js';
 
 export default function createInboxBtn() {
     const display = createDOMElement('button', {

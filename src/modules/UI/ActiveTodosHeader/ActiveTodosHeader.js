@@ -2,7 +2,7 @@ import './ActiveTodosHeader.css';
 
 import { subscribe } from "../../observer.js";
 import controller from "../../controller.js";
-import createDOMElement from '../../createDOMElement.js';
+import { createDOMElement }  from '../../domManipulators.js';
 
 export default function createActiveTodosHeader() {
     const header = createDOMElement('h2', { class: 'todos-header__header' });
