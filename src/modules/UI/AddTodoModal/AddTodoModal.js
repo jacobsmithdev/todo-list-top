@@ -14,7 +14,7 @@ export default function createAddTodoModal() {
     const submitBtn = createDOMElement('button', { class: 'form-submit-btn' }, '+ Add');
     const closeBtn = createDOMElement('button', { type: 'button', class: 'form-close-btn' }, 'close');
 
-    let project = createFormSelect('project', 'project', 'select project...');
+    let project = createProjectSelect('project', 'project', 'select project...');
 
     const form = createDOMElement('form', {
         class: 'modal__form',
@@ -45,7 +45,7 @@ export default function createAddTodoModal() {
     subscribe('projectUpdate', render);
 
     function render() {
-        const newProjects = createFormSelect('project', 'project', 'project');
+        const newProjects = createProjectSelect('project', 'project', 'project');
         project.replaceWith(newProjects);
         project = newProjects;
     }
@@ -56,7 +56,7 @@ export default function createAddTodoModal() {
     ]
 }
 
-function createFormSelect(id, name, description) {
+function createProjectSelect(id, name, description) {
     const placeholder = createDOMElement('option', {
         class: 'select__option',
         disabled: true,
