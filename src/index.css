@@ -120,7 +120,7 @@
   width: 200px;
 }
 
-.form-row__input[type="date"]::-webkit-calendar-picker-indicator {
+.form-row__input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   filter: invert(1) brightness(0.8);
   width: 20px;
   height: 20px;

@@ -8,7 +8,7 @@ export default function createAddTodoModal() {
     const title = createFormInput('text', 'title', 'title', 'Title', 'title');
     const description = createFormInput('text', 'description', 'description', 'Description', 'description');
     const priority = createFormInput('number', 'priority', 'priority', 'Priority', 'priority');
-    const date = createFormInput('date', 'date', 'date', 'Date', 'date');
+    const date = createFormInput('datetime-local', 'date', 'date', 'Date', 'date');
 
     const openBtn = createDOMElement('button', { class: 'list-btn' }, '+ Add Todo');
     const submitBtn = createDOMElement('button', { class: 'form-submit-btn' }, '+ Add');
