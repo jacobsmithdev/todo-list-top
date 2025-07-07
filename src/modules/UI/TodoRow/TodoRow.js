@@ -2,6 +2,7 @@ import './TodoRow.css';
 
 import trashIconSrc from '../../../img/trash_icon.svg';
 
+import { format } from 'date-fns';
 import controller from '../../controller';
 import { createDOMElement }  from '../../domManipulators.js';
 
@@ -9,7 +10,9 @@ export default function createTodoRow(todo) {
     const description = createDOMElement('div', { class: 'todo-row__description' }, todo.description);
     const title = createDOMElement('div', { class: 'todo-row__title' }, todo.title);
     const priority = createDOMElement('div', { class: 'todo-row__priority' }, `P${todo.priority}`);
-    const date = createDOMElement('div', { class: 'todo-row__date' }, todo.date)
+
+    const dateString = format(todo.date, 'ccc hh:mm a (MMM d)');
+    const date = createDOMElement('div', { class: 'todo-row__date' }, dateString);
 
     const trashIcon = createDOMElement('img', { 
         class: 'todo-row__trash-icon',
