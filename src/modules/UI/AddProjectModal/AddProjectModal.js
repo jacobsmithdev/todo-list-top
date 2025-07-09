@@ -6,7 +6,10 @@ import { createDOMElement, createFormInput }  from '../../domManipulators.js';
 export default function createAddProjectModal() {
     const title = createFormInput('text', 'title', 'title', 'Title', 'title');
     const description = createFormInput('text', 'description', 'description', 'Description', 'description');
-    
+
+    const titleInput = title.querySelector('input');
+    const descriptionInput = description.querySelector('input');
+
     const submitBtn = createDOMElement('button', { class: 'form-submit-btn' }, '+ Add');
     const openBtn = createDOMElement('button', { class: 'list-btn' }, '+ Add Project')
     const closeBtn = createDOMElement('button', { type: 'button', class: 'form-close-btn' }, 'close');
@@ -24,8 +27,8 @@ export default function createAddProjectModal() {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         controller.addProject(
-            title.querySelector('input').value,
-            description.querySelector('input').value,
+            titleInput.value,
+            descriptionInput.value,
         )
 
         form.reset();

@@ -10,6 +10,11 @@ export default function createAddTodoModal() {
     const priority = createFormInput('number', 'priority', 'priority', 'Priority', 'priority');
     const date = createFormInput('datetime-local', 'date', 'date', 'Date', 'date');
 
+    const titleInput = title.querySelector('input');
+    const descriptionInput = description.querySelector('input');
+    const priorityInput = priority.querySelector('input');
+    const dateInput = date.querySelector('input');
+
     const openBtn = createDOMElement('button', { class: 'list-btn' }, '+ Add Todo');
     const submitBtn = createDOMElement('button', { class: 'form-submit-btn' }, '+ Add');
     const closeBtn = createDOMElement('button', { type: 'button', class: 'form-close-btn' }, 'close');
@@ -30,10 +35,10 @@ export default function createAddTodoModal() {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         controller.addTodo(
-            title.querySelector('input').value,
-            description.querySelector('input').value,
-            date.querySelector('input').value,
-            priority.querySelector('input').value,
+            titleInput.value,
+            descriptionInput.value,
+            dateInput.value,
+            priorityInput.value,
             false,
             project.value || null,
         )
