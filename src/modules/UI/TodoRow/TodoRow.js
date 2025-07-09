@@ -11,7 +11,7 @@ export default function createTodoRow(todo) {
     const title = createDOMElement('div', { class: 'todo-row__title' }, todo.title);
     const priority = createDOMElement('div', { class: 'todo-row__priority' }, `P${todo.priority}`);
 
-    const dateString = format(todo.date, 'ccc hh:mm a (MMM d)');
+    const dateString = todo.date ? format(todo.date, 'ccc hh:mm a (MMM d)') : '';
     const date = createDOMElement('div', { class: 'todo-row__date' }, dateString);
 
     const trashIcon = createDOMElement('img', { 
