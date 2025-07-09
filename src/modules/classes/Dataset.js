@@ -37,6 +37,7 @@ export default class Dataset {
 
     update(id, field, value) {
         const item = this.read(id);
+        if (!item) return null;
         item[field] = value;
         return item;
     }
