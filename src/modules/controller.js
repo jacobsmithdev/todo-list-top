@@ -88,6 +88,11 @@ function queryProjects(query) {
     return database.projects.query(query);
 }
 
+function getProject(id) {
+    observer.publish('projectQuery');
+    return database.projects.read(id);
+}
+
 function getAllProjects() {
     observer.publish('projectQuery');
     return database.projects.items;
@@ -115,6 +120,7 @@ export default {
     removeTodo,
     toggleTodoCompleted,
     queryProjects,
+    getProject,
     getAllProjects,
     addProject,
     removeProject,
@@ -131,6 +137,7 @@ export {
     removeTodo,
     toggleTodoCompleted,
     queryProjects,
+    getProject,
     getAllProjects,
     addProject,
     removeProject,
