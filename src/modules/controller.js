@@ -48,6 +48,11 @@ function queryTodos(query) {
     return database.todos.query(query);
 }
 
+function getTodo(id) {
+    observer.publish('todoQuery');
+    return database.todos.read(id);
+}
+
 function getAllTodos() {
     observer.publish('todoQuery');
     return database.todos.items;
@@ -104,6 +109,7 @@ function removeProject(id) {
 
 export default {
     queryTodos,
+    getTodo,
     getAllTodos,
     addTodo,
     removeTodo,
@@ -119,6 +125,7 @@ export default {
 
 export {
     queryTodos,
+    getTodo,
     getAllTodos,
     addTodo,
     removeTodo,
