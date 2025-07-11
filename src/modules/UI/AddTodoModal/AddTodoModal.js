@@ -2,7 +2,7 @@ import './AddTodoModal.css';
 
 import controller from '../../controller.js';
 import { subscribe } from '../../observer.js';
-import { createDOMElement, createFormInput }  from '../../domManipulators.js';
+import { createDOMElement, createFormInput, createFormSelectInput, createOption }  from '../../domManipulators.js';
 
 export default function createAddTodoModal() {
     const title = createFormInput('text', 'title', 'title', 'Title', 'title');
@@ -19,7 +19,13 @@ export default function createAddTodoModal() {
     const submitBtn = createDOMElement('button', { class: 'form-submit-btn' }, '+ Add');
     const closeBtn = createDOMElement('button', { type: 'button', class: 'form-close-btn' }, 'close');
 
-    let project = createProjectSelect('project', 'project', 'select project...');
+    const projectsData = controller.getAllProjects();
+    const projectsOptionData = projectsData.map(project => ({ name: project.title, value: project.id, disabled: false }));
+    // Add option for inbox
+    projectsOptionData.unshift({ name: 'Inbox', value: '', disabled: false });
+
+    const project = createFormSelectInput('project', 'project', 'Project', projectsOptionData, 0);
+    const projectInput = project.querySelector('select#project');
 
     const form = createDOMElement('form', {
         class: 'modal__form',
@@ -40,7 +46,7 @@ export default function createAddTodoModal() {
             dateInput.value,
             priorityInput.value,
             false,
-            project.value || null,
+            projectInput.value || null,
         )
 
         form.reset();
@@ -50,41 +56,19 @@ export default function createAddTodoModal() {
     subscribe('projectUpdate', render);
 
     function render() {
-        const newProjects = createProjectSelect('project', 'project', 'project');
-        project.replaceWith(newProjects);
-        project = newProjects;
+        const projects = controller.getAllProjects();
+        const projectsOptionData = projects.map(project => ({ name: project.title, value: project.id, disabled: false }));
+
+        // Add option for inbox
+        projectsOptionData.unshift({ name: 'Inbox', value: '', disabled: false });
+
+        const projectsOptions = projectsOptionData.map(optionData => createOption(optionData));
+        projectInput.textContent = '';
+        projectInput.append(...projectsOptions);
     }
 
     return [
         display,
         openBtn,
     ]
-}
-
-function createProjectSelect(id, name, description) {
-    const placeholder = createDOMElement('option', {
-        class: 'select__option',
-        disabled: true,
-        selected: true,
-        value: '',
-    }, description);
-
-    const select = createDOMElement('select', {
-        class: 'select',
-        id: id,
-        name: name,
-    }, placeholder);
-
-    const projectsData = controller.getAllProjects();
-
-    projectsData.forEach(project => {
-        const option = createDOMElement('option', {
-            class: 'select__option',
-            value: (project.id)
-        }, project.title);
-
-        select.append(option);
-    });
-
-    return select;
 }
