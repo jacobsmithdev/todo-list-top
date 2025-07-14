@@ -48,7 +48,7 @@ export default function createTodoRow(todo) {
 
     const main = createDOMElement('div', { 
         class: 'todo-row__main' 
-    }, checkbox, expandBtn, title, priority, date, editBtn, deleteBtn);
+    }, checkbox, expandBtn, title, date, priority, editBtn, deleteBtn);
 
     const display = createDOMElement('div', {
         class: 'todo-row',
