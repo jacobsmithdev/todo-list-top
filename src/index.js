@@ -23,6 +23,7 @@ const projectsNav = document.querySelector('.projects-nav');
 const activeTodosDisplay = createActiveTodoDisplay();
 const activeTodosHeader = createActiveTodosHeader();
 const inboxBtn = createInboxBtn();
+const todayTodosBtn = createTodayTodosBtn();
 const projectsDisplay = createProjectsDisplay();
 const [addTodoModal, addTodoModalBtn] = createAddTodoModal();
 const [addProjectModal, addProjectModalBtn] = createAddProjectModal();
@@ -31,11 +32,12 @@ const editTodoModal = createEditTodoModal();
 // Appends
 activeTodosContainer.append(activeTodosDisplay);
 activeTodosHeaderContainer.append(activeTodosHeader);
-todosNav.append(addTodoModalBtn, inboxBtn);
+todosNav.append(addTodoModalBtn, todayTodosBtn, inboxBtn);
 projectsNav.append(addProjectModalBtn, projectsDisplay);
 document.body.append(addTodoModal, addProjectModal, editTodoModal);
 
 loadLocalStorage();
 
 import debug from './debug.js';
+import createTodayTodosBtn from './modules/UI/TodayTodosBtn/TodayTodosBtn.js';
 debug();
