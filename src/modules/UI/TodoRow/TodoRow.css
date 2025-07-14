@@ -76,6 +76,21 @@
   padding: 8px;
 }
 
+.todo-row__edit-btn {
+  background: none;
+  border: none;
+  display: grid;
+  place-content: center;
+}
+
+.todo-row__edit-btn:hover {
+  cursor: pointer;
+}
+
+.todo-row__edit-icon {
+  width: 20px;
+}
+
 .todo-row__priority {
   background: var(--todo-row-p0);
   color: var(--todo-row-priority-text);

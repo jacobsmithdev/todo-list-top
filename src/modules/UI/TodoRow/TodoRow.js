@@ -1,6 +1,7 @@
 import './TodoRow.css';
 
 import trashIconSrc from '../../../img/trash_icon.svg';
+import editIconSrc from '../../../img/edit_icon.svg';
 
 import { format } from 'date-fns';
 import controller from '../../controller';
@@ -20,9 +21,16 @@ export default function createTodoRow(todo) {
         src: trashIconSrc, 
         alt: 'trash icon'
     });
+
+    const editIcon = createDOMElement('img', { 
+        class: 'todo-row__edit-icon',
+        src: editIconSrc, 
+        alt: 'edit icon'
+    });
+
     const deleteBtn = createDOMElement('button', { class: 'todo-row__delete-btn'}, trashIcon);
     const expandBtn = createDOMElement('button', { class: 'todo-row__expand-btn' });
-    const editBtn = createDOMElement('button', { class: 'todo-row__edit-btn' }, 'edit');
+    const editBtn = createDOMElement('button', { class: 'todo-row__edit-btn' }, editIcon);
 
     const checkbox = createDOMElement('input', {
         class: 'todo-row__checkbox',
