@@ -76,6 +76,17 @@ function removeTodo(id) {
     return removedTodo;
 }
 
+function editTodo(id, field, value) {
+    const todo = database.todos.read(id);
+    if (todo) {
+        database.todos.update(id, field, value);
+        updateActiveTodos();
+    }
+
+    observer.publish('todoUpdate');
+    return todo;
+}
+
 function toggleTodoCompleted(id) {
     const todo = database.todos.read(id);
     todo.toggleCompleted();
@@ -118,6 +129,7 @@ export default {
     getAllTodos,
     addTodo,
     removeTodo,
+    editTodo,
     toggleTodoCompleted,
     queryProjects,
     getProject,
@@ -135,6 +147,7 @@ export {
     getAllTodos,
     addTodo,
     removeTodo,
+    editTodo,
     toggleTodoCompleted,
     queryProjects,
     getProject,
