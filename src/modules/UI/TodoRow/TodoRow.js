@@ -5,6 +5,7 @@ import trashIconSrc from '../../../img/trash_icon.svg';
 import { format } from 'date-fns';
 import controller from '../../controller';
 import { createDOMElement }  from '../../domManipulators.js';
+import observer from '../../observer.js';
 
 export default function createTodoRow(todo) {
     const description = createDOMElement('div', { class: 'todo-row__description' }, todo.description);
@@ -21,6 +22,7 @@ export default function createTodoRow(todo) {
     });
     const deleteBtn = createDOMElement('button', { class: 'todo-row__delete-btn'}, trashIcon);
     const expandBtn = createDOMElement('button', { class: 'todo-row__expand-btn' });
+    const editBtn = createDOMElement('button', { class: 'todo-row__edit-btn' }, 'edit');
 
     const checkbox = createDOMElement('input', {
         class: 'todo-row__checkbox',
@@ -38,7 +40,7 @@ export default function createTodoRow(todo) {
 
     const main = createDOMElement('div', { 
         class: 'todo-row__main' 
-    }, checkbox, expandBtn, title, priority, date, deleteBtn);
+    }, checkbox, expandBtn, title, priority, date, editBtn, deleteBtn);
 
     const display = createDOMElement('div', {
         class: 'todo-row',
@@ -58,6 +60,9 @@ export default function createTodoRow(todo) {
     expandBtn.addEventListener('click', () => {
         toggleExpanded()
         expandBtn.classList.toggle('todo-row__expand-btn--open')
+    });
+    editBtn.addEventListener('click', () => {
+        observer.publish('editTodo', todo.id);
     });
 
     function toggleExpanded() {
