@@ -4,6 +4,10 @@ import localStorageHandler from "./localStorageHandler";
 export default function loadLocalStorage() {
     const projectsStorage = localStorageHandler.getProjects();
     const todosStorage = localStorageHandler.getTodos();
+
+    if (!projectsStorage || !todosStorage) {
+        return false;
+    }
     
     if (projectsStorage) {
         projectsStorage.forEach(project => {
@@ -16,4 +20,6 @@ export default function loadLocalStorage() {
             controller.addTodo(todo);
         })
     }
+    
+    return true;
 }
