@@ -10,7 +10,7 @@ import createProjectsDisplay from './modules/UI/ProjectsDisplay/ProjectsDisplay.
 import createAddTodoModal from './modules/UI/AddTodoModal/AddTodoModal.js';
 import createAddProjectModal from './modules/UI/AddProjectModal/AddProjectModal.js';
 import createEditTodoModal from './modules/UI/EditTodoModal/EditTodoModal.js';
-
+import createTodayTodosBtn from './modules/UI/TodayTodosBtn/TodayTodosBtn.js';
 import loadLocalStorage from './modules/loadLocalStorage.js';
 
 // Containers
@@ -39,5 +39,4 @@ document.body.append(addTodoModal, addProjectModal, editTodoModal);
 loadLocalStorage();
 
 import debug from './debug.js';
-import createTodayTodosBtn from './modules/UI/TodayTodosBtn/TodayTodosBtn.js';
 debug();
