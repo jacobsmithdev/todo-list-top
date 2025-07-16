@@ -22,16 +22,16 @@ function createFormInput(type, id, name, description, placeholder) {
     const input = createInput(type, id, name, placeholder)
     const label = createLabel(input, description)
     
-    const row = createDOMElement('div', { class: 'form-row' }, label, input);
+    const row = createDOMElement("div", { class: "form-row" }, label, input);
 
     return row;
 }
 
 function createLabel(input, text) {
-    const inputId = input.getAttribute('id');
+    const inputId = input.getAttribute("id");
 
-    const label = createDOMElement('label', {
-        class: 'form-row__label',
+    const label = createDOMElement("label", {
+        class: "form-row__label",
         for: inputId,
     }, text);
 
@@ -39,8 +39,8 @@ function createLabel(input, text) {
 }
 
 function createInput(type, id, name, placeholder) {
-    const input = createDOMElement('input', {
-        class: 'form-row__input',
+    const input = createDOMElement("input", {
+        class: "form-row__input",
         type: type,
         id: id,
         name: name,
@@ -54,18 +54,18 @@ function createFormSelectInput(id, name, description, optionsData, defaultOption
     const select = createSelectInput(id, name, optionsData, defaultOptionIndex);
     const label = createLabel(select, description);
 
-    const row = createDOMElement('div', { class: 'form-row' }, label, select);
+    const row = createDOMElement("div", { class: "form-row" }, label, select);
 
     return row;
 }
 
 // Requires optionsData to be an array of objects matching the 
-// format for createOption's input
+// format for createOption"s input
 function createSelectInput(id, name, optionsData, defaultOptionIndex = 0) {
-    const select = createDOMElement('select', {
+    const select = createDOMElement("select", {
         id: id,
         name: name,
-        class: 'select'
+        class: "select"
     });
 
     if (optionsData) {
@@ -80,8 +80,8 @@ function createSelectInput(id, name, optionsData, defaultOptionIndex = 0) {
 
 // Requires an object matching the format:
 // {
-//     name: 'name',
-//     value: 'value',
+//     name: "name",
+//     value: "value",
 //     disabled: true/false,
 // }
 function createOption(optionData) {
@@ -89,12 +89,12 @@ function createOption(optionData) {
     const value = optionData.value;
     const disabled = optionData.disabled;
 
-    const option = createDOMElement('option', { 
+    const option = createDOMElement("option", { 
         value: value, 
-        class: 'select__option' 
+        class: "select__option" 
     }, textContent);
     
-    if (disabled) option.setAttribute('disabled', true);
+    if (disabled) option.setAttribute("disabled", true);
     
     return option;
 }

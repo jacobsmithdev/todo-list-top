@@ -1,14 +1,14 @@
-import './TodayTodosBtn.css';
+import "./TodayTodosBtn.css";
 
 import controller from "../../controller.js";
 import TodoQuery from "../../classes/TodoQuery.js";
-import { createDOMElement }  from '../../domManipulators.js';
-import { format, startOfDay, isEqual } from 'date-fns';
+import { createDOMElement }  from "../../domManipulators.js";
+import { format, startOfDay, isEqual } from "date-fns";
 
 export default function createTodayTodosBtn() {
-    const display = createDOMElement('button', {
-        class: 'today-todos-btn list-btn',
-    }, 'Today');
+    const display = createDOMElement("button", {
+        class: "today-todos-btn list-btn",
+    }, "Today");
     
     const queryFn = (todo) => {
         if (!todo.date) return false;
@@ -23,11 +23,11 @@ export default function createTodayTodosBtn() {
 
     const inboxQuery = new TodoQuery(
         queryFn,
-        'Today',
-        `${format(Date.now(), 'MMM d, yyyy')}`
+        "Today",
+        `${format(Date.now(), "MMM d, yyyy")}`
     );
     
-    display.addEventListener('click', () => controller.setActiveQuery(inboxQuery))
+    display.addEventListener("click", () => controller.setActiveQuery(inboxQuery))
     
     return display;
 }

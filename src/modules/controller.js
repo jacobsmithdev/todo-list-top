@@ -11,7 +11,7 @@ function setActiveQuery(input) {
         const query = input;
         activeQuery = query;
         updateActiveTodos();
-        observer.publish('activeQueryUpdate');
+        observer.publish("activeQueryUpdate");
         return true;
     }
 
@@ -22,7 +22,7 @@ function setActiveQuery(input) {
         const queryFn = todo => todo.projectId === project.id;
         activeQuery = new TodoQuery(queryFn, project.title, project.description, project.id);
         updateActiveTodos();
-        observer.publish('activeQueryUpdate');
+        observer.publish("activeQueryUpdate");
         return true;
     }
     return false;
@@ -36,7 +36,7 @@ function updateActiveTodos() {
     if (activeQuery) {
         activeTodos = database.todos.query(activeQuery.query);
     }
-    observer.publish('activeTodosUpdate');
+    observer.publish("activeTodosUpdate");
 }
 
 function getActiveTodos() {
@@ -44,17 +44,17 @@ function getActiveTodos() {
 }
 
 function queryTodos(query) {
-    observer.publish('todoQuery');
+    observer.publish("todoQuery");
     return database.todos.query(query);
 }
 
 function getTodo(id) {
-    observer.publish('todoQuery');
+    observer.publish("todoQuery");
     return database.todos.read(id);
 }
 
 function getAllTodos() {
-    observer.publish('todoQuery');
+    observer.publish("todoQuery");
     return database.todos.items;
 }
 
@@ -63,7 +63,7 @@ function addTodo(...args) {
     if (activeQuery && activeQuery.query(todo)) {
         updateActiveTodos();
     }
-    observer.publish('todoUpdate');
+    observer.publish("todoUpdate");
     return todo;
 }
 
@@ -72,7 +72,7 @@ function removeTodo(id) {
     if (activeQuery && activeQuery.query(removedTodo)) {
         updateActiveTodos();
     }
-    observer.publish('todoUpdate');
+    observer.publish("todoUpdate");
     return removedTodo;
 }
 
@@ -83,35 +83,35 @@ function editTodo(id, field, value) {
         updateActiveTodos();
     }
 
-    observer.publish('todoUpdate');
+    observer.publish("todoUpdate");
     return todo;
 }
 
 function toggleTodoCompleted(id) {
     const todo = database.todos.read(id);
     todo.toggleCompleted();
-    observer.publish('todoUpdate');
+    observer.publish("todoUpdate");
     return todo;
 }
 
 function queryProjects(query) {
-    observer.publish('projectQuery');
+    observer.publish("projectQuery");
     return database.projects.query(query);
 }
 
 function getProject(id) {
-    observer.publish('projectQuery');
+    observer.publish("projectQuery");
     return database.projects.read(id);
 }
 
 function getAllProjects() {
-    observer.publish('projectQuery');
+    observer.publish("projectQuery");
     return database.projects.items;
 }
 
 function addProject(...args) {
     const project = database.projects.create(...args);
-    observer.publish('projectUpdate');
+    observer.publish("projectUpdate");
     return project;
 }
 
@@ -119,7 +119,7 @@ function removeProject(id) {
     const removedProject = database.projects.delete(id);
     const removedProjectTodos = database.todos.query(todo => todo.projectId === id);
     removedProjectTodos.forEach(todo => removeTodo(todo.id));
-    observer.publish('projectUpdate');
+    observer.publish("projectUpdate");
     return [removedProject, removedProjectTodos];
 }
 

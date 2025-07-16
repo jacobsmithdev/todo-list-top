@@ -145,7 +145,7 @@
 }
 
 .todo-row__expand-btn::before {
-  content: '';
+  content: "";
   background: var(--todo-row-text);
   width: 20px;
   height: 20px;

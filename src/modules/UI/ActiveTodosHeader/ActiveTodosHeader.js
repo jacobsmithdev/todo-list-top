@@ -1,18 +1,18 @@
-import './ActiveTodosHeader.css';
+import "./ActiveTodosHeader.css";
 
 import { subscribe } from "../../observer.js";
 import controller from "../../controller.js";
-import { createDOMElement }  from '../../domManipulators.js';
+import { createDOMElement }  from "../../domManipulators.js";
 
 export default function createActiveTodosHeader() {
-    const header = createDOMElement('h2', { class: 'todos-header__header' });
-    const description = createDOMElement('p', { class: 'todos-header__description' });
+    const header = createDOMElement("h2", { class: "todos-header__header" });
+    const description = createDOMElement("p", { class: "todos-header__description" });
 
-    const display = createDOMElement('div', {
-        class: 'todos-header',
+    const display = createDOMElement("div", {
+        class: "todos-header",
     }, header, description);
 
-    subscribe('activeTodosUpdate', render);
+    subscribe("activeTodosUpdate", render);
 
     function render() {
         const activeQuery = controller.getActiveQuery();

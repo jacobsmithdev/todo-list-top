@@ -6,11 +6,11 @@ import controller from "./controller";
 
 function saveTodos() {
    const todosJSON = JSON.stringify(controller.getAllTodos());
-   localStorage.setItem('todos', todosJSON);
+   localStorage.setItem("todos", todosJSON);
 }
 
 function getTodos() {
-   const todosLocalStorage = localStorage.getItem('todos');
+   const todosLocalStorage = localStorage.getItem("todos");
    if (todosLocalStorage === null) return null;
 
    const todosJSON = JSON.parse(todosLocalStorage);
@@ -25,11 +25,11 @@ function getTodos() {
 
 function saveProjects() {
    const projectsJSON = JSON.stringify(controller.getAllProjects())
-   localStorage.setItem('projects', projectsJSON);
+   localStorage.setItem("projects", projectsJSON);
 }
 
 function getProjects() {
-   const projectsLocalStorage = localStorage.getItem('projects');
+   const projectsLocalStorage = localStorage.getItem("projects");
    if (projectsLocalStorage === null) return null;
 
    const projectsJSON = JSON.parse(projectsLocalStorage);
@@ -48,8 +48,8 @@ function makeClassInstance(object, ClassType) {
    return classInstance;
 }
 
-observer.subscribe('todoUpdate', () => saveTodos());
-observer.subscribe('projectUpdate', () => saveProjects());
+observer.subscribe("todoUpdate", () => saveTodos());
+observer.subscribe("projectUpdate", () => saveProjects());
 
 export {
    saveTodos,

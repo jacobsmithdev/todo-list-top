@@ -1,17 +1,17 @@
-import './ActiveTodosDisplay.css';
+import "./ActiveTodosDisplay.css";
 
 import { subscribe } from "../../observer.js";
 import { getActiveTodos } from "../../controller.js";
-import createTodoRow from '../TodoRow/TodoRow.js';
-import { createDOMElement } from '../../domManipulators.js';
+import createTodoRow from "../TodoRow/TodoRow.js";
+import { createDOMElement } from "../../domManipulators.js";
 
 export default function createActiveTodoDisplay() {
-    const display = createDOMElement('div', { class: 'todo-display' });
+    const display = createDOMElement("div", { class: "todo-display" });
     
-    subscribe('activeTodosUpdate', render);
+    subscribe("activeTodosUpdate", render);
 
     function render() {
-        display.textContent = '';
+        display.textContent = "";
         const todos = getActiveTodos();
 
         const todoDisplays = todos.map(todo => {

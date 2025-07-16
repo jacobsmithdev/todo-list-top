@@ -32,7 +32,7 @@ function generateRandomDate() {
 }
 
 function createTodo(projectId = null) {
-    const title = `todo${todoCounter.toString().padStart(3, '0')}`;
+    const title = `todo${todoCounter.toString().padStart(3, "0")}`;
     const description = getRandomString(10);
     const priority = Math.floor(Math.random() * 5) + 1;
     const completed = Math.random() < 0.5;
@@ -53,7 +53,7 @@ function createTodoArray(numTodos, projectId = null) {
 }
 
 function createProject(numTodos = 0) {
-    const title = `project${projectCounter.toString().padStart(3, '0')}`;
+    const title = `project${projectCounter.toString().padStart(3, "0")}`;
     const description = getRandomString(10);
 
     const project = new Project(title, description);
@@ -78,7 +78,7 @@ function createProjectArray(numProjects) {
 }
 
 function getRandomString(length) {
-    let string = '';
+    let string = "";
     for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * CHARS.length);
         const isLowercase = Math.random() < 0.5;
