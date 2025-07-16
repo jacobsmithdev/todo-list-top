@@ -12,6 +12,7 @@ import createAddProjectModal from "./modules/UI/AddProjectModal/AddProjectModal.
 import createEditTodoModal from "./modules/UI/EditTodoModal/EditTodoModal.js";
 import createTodayTodosBtn from "./modules/UI/TodayTodosBtn/TodayTodosBtn.js";
 import loadLocalStorage from "./modules/loadLocalStorage.js";
+import createSearchBar from "./modules/UI/SearchBar/SearchBar.js";
 
 import Project from "./modules/classes/Project.js";
 import Todo from "./modules/classes/Todo.js";
@@ -20,6 +21,7 @@ import controller from "./modules/controller.js";
 // Containers
 const activeTodosContainer = document.querySelector("#todos");
 const activeTodosHeaderContainer = document.querySelector("#todos-header");
+const searchBarContainer = document.querySelector("#search-bar-container");
 const todosNav = document.querySelector(".todos-nav");
 const projectsNav = document.querySelector(".projects-nav");
 
@@ -32,10 +34,12 @@ const projectsDisplay = createProjectsDisplay();
 const [addTodoModal, addTodoModalBtn] = createAddTodoModal();
 const [addProjectModal, addProjectModalBtn] = createAddProjectModal();
 const editTodoModal = createEditTodoModal();
+const searchBar = createSearchBar();
 
 // Appends
 activeTodosContainer.append(activeTodosDisplay);
 activeTodosHeaderContainer.append(activeTodosHeader);
+searchBarContainer.append(searchBar)
 todosNav.append(addTodoModalBtn, todayTodosBtn, inboxBtn);
 projectsNav.append(addProjectModalBtn, projectsDisplay);
 document.body.append(addTodoModal, addProjectModal, editTodoModal);
