@@ -13,6 +13,7 @@ import createEditTodoModal from "./modules/UI/EditTodoModal/EditTodoModal.js";
 import createTodayTodosBtn from "./modules/UI/TodayTodosBtn/TodayTodosBtn.js";
 import loadLocalStorage from "./modules/loadLocalStorage.js";
 import createSearchBar from "./modules/UI/SearchBar/SearchBar.js";
+import createTestProjectsBtn from "./modules/UI/TestProjectsBtn/TestProjectsBtn.js";
 
 import Project from "./modules/classes/Project.js";
 import Todo from "./modules/classes/Todo.js";
@@ -35,13 +36,14 @@ const [addTodoModal, addTodoModalBtn] = createAddTodoModal();
 const [addProjectModal, addProjectModalBtn] = createAddProjectModal();
 const editTodoModal = createEditTodoModal();
 const searchBar = createSearchBar();
+const testProjectsBtn = createTestProjectsBtn();
 
 // Appends
 activeTodosContainer.append(activeTodosDisplay);
 activeTodosHeaderContainer.append(activeTodosHeader);
 searchBarContainer.append(searchBar)
 todosNav.append(addTodoModalBtn, todayTodosBtn, inboxBtn);
-projectsNav.append(addProjectModalBtn, projectsDisplay);
+projectsNav.append(addProjectModalBtn, projectsDisplay, testProjectsBtn);
 document.body.append(addTodoModal, addProjectModal, editTodoModal);
 
 const hasLocalStorage = loadLocalStorage();

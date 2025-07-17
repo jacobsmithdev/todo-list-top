@@ -1,0 +1,12 @@
+:root {
+    --test-data-btn: var(--light-grey);
+    --test-data-btn-hover: var(--light-grey-alt);
+}
+
+.test-data-btn {
+    color: var(--test-data-btn);
+}
+
+.test-data-btn:hover {
+    color: var(--test-data-btn-hover);
+}
