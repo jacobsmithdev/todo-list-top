@@ -15,10 +15,6 @@ import loadLocalStorage from "./modules/loadLocalStorage.js";
 import createSearchBar from "./modules/UI/SearchBar/SearchBar.js";
 import createTestProjectsBtn from "./modules/UI/TestProjectsBtn/TestProjectsBtn.js";
 
-import Project from "./modules/classes/Project.js";
-import Todo from "./modules/classes/Todo.js";
-import controller from "./modules/controller.js";
-
 // Containers
 const activeTodosContainer = document.querySelector("#todos");
 const activeTodosHeaderContainer = document.querySelector("#todos-header");
@@ -46,11 +42,4 @@ todosNav.append(addTodoModalBtn, todayTodosBtn, inboxBtn);
 projectsNav.append(addProjectModalBtn, projectsDisplay, testProjectsBtn);
 document.body.append(addTodoModal, addProjectModal, editTodoModal);
 
-const hasLocalStorage = loadLocalStorage();
-if (!hasLocalStorage) {
-    const defaultProject = new Project("Project 1", "Default project.");
-    const defaultTodo = new Todo("first todo", "default todo.", new Date(Date.now()), 1, false, defaultProject.id);
-
-    controller.addProject(defaultProject);
-    controller.addTodo(defaultTodo);
-}
+loadLocalStorage();
