@@ -11,6 +11,14 @@
   --todo-row-p4: var(--solid-blue);
 
   --todo-row-completed: var(--dark-turquoise);
+
+  --todo-checkbox-check: var(--dark-grey);
+
+  --todo-checkbox: var(--light-grey);
+  --todo-checkbox-hover:  var(--light-grey-alt);
+
+  --todo-checkbox-checked: var(--dark-turquoise);
+  --todo-checkbox-checked-hover:  var(--dark-turquoise-alt);
 }
 
 .todo-row {
@@ -25,20 +33,20 @@
   font: inherit;
   width: 1.25em;
   height: 1.25em;
-  border: 0.15em solid var(--light-grey);
+  border: 0.15em solid var(--todo-checkbox);
   display: grid; 
   place-content: center;
 }
 
 .todo-row__checkbox:hover {
   cursor: pointer;
-  border: 0.15em solid var(--light-grey-alt);
+  border: 0.15em solid var(--todo-checkbox-hover);
 
 }
 
 .todo-row__checkbox:checked:hover {
-  background: var(--dark-turquoise-alt);
-  border: 4px solid var(--dark-turquoise-alt);
+  background: var(--todo-checkbox-checked-hover);
+  border: 4px solid var(--todo-checkbox-checked-hover);
 }
 
 .todo-row__checkbox::before {
@@ -47,7 +55,7 @@
   height: 0.75em;
   transform: scale(0);
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-  box-shadow: inset 1em 1em var(--dark-grey);
+  box-shadow: inset 1em 1em var(--todo-checkbox-check);
 }
 
 .todo-row__checkbox:checked::before {
@@ -55,8 +63,8 @@
 }
 
 .todo-row__checkbox:checked {
-  background: var(--dark-turquoise);
-  border: 4px solid var(--dark-turquoise);
+  background: var(--todo-checkbox-checked);
+  border: 4px solid var(--todo-checkbox-checked);
 }
 
 .todo-row__main {
