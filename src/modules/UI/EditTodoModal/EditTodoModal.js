@@ -68,7 +68,7 @@ export default function createEditTodoModal() {
         priorityInput.value = todo.priority;
 
         if (todo.date) {
-            const dateString = format(todo.date, "yyyy-MM-dd'T'hh:mm");
+            const dateString = format(todo.date, "yyyy-MM-dd'T'HH:mm");
             dateInput.value = dateString;
         } else {
             dateInput.value = "";
