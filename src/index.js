@@ -3,6 +3,9 @@ import "./reset.css";
 import "./colors.css";
 import "./index.css";
 
+import { setActiveQuery } from "./modules/controller.js";
+import TodoQuery from "./modules/classes/TodoQuery.js";
+
 import createActiveTodoDisplay from "./modules/UI/ActiveTodosDisplay/ActiveTodosDisplay.js";
 import createActiveTodosHeader from "./modules/UI/ActiveTodosHeader/ActiveTodosHeader.js";
 import createInboxBtn from "./modules/UI/InboxBtn/InboxBtn.js";
@@ -43,3 +46,11 @@ projectsNav.append(addProjectModalBtn, projectsDisplay, testProjectsBtn);
 document.body.append(addTodoModal, addProjectModal, editTodoModal);
 
 loadLocalStorage();
+
+setActiveQuery(
+    new TodoQuery(
+        todo => !todo.projectId,
+        "Inbox",
+        "todos without a project"
+    )
+);
