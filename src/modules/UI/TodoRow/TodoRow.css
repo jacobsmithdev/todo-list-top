@@ -131,6 +131,7 @@
 }
 
 .todo-row__expand-btn {
+  margin: 0 -12px;
   width: 24px;
   height: 24px;
   display: grid;
