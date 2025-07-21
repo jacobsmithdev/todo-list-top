@@ -36,8 +36,8 @@ function formatSearchData(todo) {
     const date = todo.date ? format(new Date(todo.date), "PPPPpppp") : "";
 
     const project = controller.getProject(todo.projectId);
-    const projectName = project ? project.title.toLowerCase() : "inbox";
-    const projectDescription = project ? project.description.toLowerCase() : "inbox";
+    const projectName = project ? project.title : "inbox";
+    const projectDescription = project ? project.description : "inbox";
 
     const dataArr = [
         title,
@@ -47,7 +47,7 @@ function formatSearchData(todo) {
         projectDescription,
     ]
 
-    dataArr.forEach(item => String(item).toLowerCase());
+    const lowerCaseDataArr = dataArr.map(item => String(item).toLowerCase());
 
-    return dataArr;
+    return lowerCaseDataArr;
 }
