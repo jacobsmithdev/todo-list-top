@@ -33,7 +33,7 @@ export default function createSearchBar() {
 function formatSearchData(todo) {
     const title = todo.title;
     const description = todo.description;
-    const date = todo.date ? format(new Date(todo.date), "PPPPpppp") : "";
+    const date = todo.date ? format(new Date(todo.date), "ccc hh:mm a (MMM d)") : "";
 
     const project = controller.getProject(todo.projectId);
     const projectName = project ? project.title : "inbox";
