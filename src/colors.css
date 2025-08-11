@@ -9,6 +9,9 @@
     --seagreen: hsl(163, 76%, 31%);
     --seagreen-alt: hsl(163, 78%, 40%);
     --green: hsl(119, 42%, 54%);
+    
+    --grey: hsl(0, 0%, 44%);
+    --grey-alt: hsl(0, 0%, 53%);
 
     --light-grey: hsl(206, 8%, 67%);
     --light-grey-alt: hsl(210, 7%, 78%);

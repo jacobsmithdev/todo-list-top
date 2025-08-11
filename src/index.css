@@ -22,6 +22,9 @@
   --select-color: var(--light-grey-alt);
   --select-border: var(--turquoise);
   --select-option-bg: var(--dark-grey);
+
+  --credit-text: var(--grey);
+  --credit-text-alt: var(--grey-alt);
 }
 
 * {
@@ -164,4 +167,22 @@
 .select__option {
   background: var(--select-option-bg);
   font-weight: bold;
+}
+
+.credit-list {
+  padding: 24px;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.credit-list__a {
+  text-decoration: none;
+  color: var(--credit-text);
+}
+
+.credit-list__a:hover {
+  color: var(--credit-text-alt);
+  text-decoration: underline;
 }
