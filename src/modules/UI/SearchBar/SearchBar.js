@@ -12,7 +12,7 @@ export default function createSearchBar() {
         class: "search-bar "
     })
 
-    display.addEventListener("change", () =>{
+    display.addEventListener("input", () =>{
         const queryFn = (todo) => {
             const searchValue = display.value.toLowerCase();
             const searchData = formatSearchData(todo);
